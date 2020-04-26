@@ -1,6 +1,6 @@
 # Image based OpenAI Gym environment
 
-This is acustom Gym environment [FetchReach-v1](https://gym.openai.com/envs/FetchReach-v1/) implementation following this [tutorial](https://medium.com/@apoddar573/making-your-own-custom-environment-in-gym-c3b65ff8cdaa).
+This is a custom Gym environment [FetchReach-v1](https://gym.openai.com/envs/FetchReach-v1/) implementation following this [tutorial](https://medium.com/@apoddar573/making-your-own-custom-environment-in-gym-c3b65ff8cdaa).
 
 ## Motivation
 
