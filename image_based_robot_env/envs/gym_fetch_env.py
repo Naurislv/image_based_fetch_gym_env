@@ -2,6 +2,13 @@ import numpy as np
 
 from gym.envs.robotics import rotations, robot_env, utils
 
+import mujoco_py
+from mujoco_py import GlfwContext
+
+# There was a error and we were not able to render rgb image, this fixes it
+# https://github.com/openai/mujoco-py/issues/390
+GlfwContext(offscreen=True)  # Create a window to init GLFW.
+
 
 def goal_distance(goal_a, goal_b):
     assert goal_a.shape == goal_b.shape
@@ -103,6 +110,7 @@ class FetchEnv(robot_env.RobotEnv):
             object_velp -= grip_velp
         else:
             object_pos = object_rot = object_velp = object_velr = object_rel_pos = np.zeros(0)
+
         gripper_state = robot_qpos[-2:]
         gripper_vel = robot_qvel[-2:] * dt  # change to a scalar if the gripper is made symmetric
 
@@ -114,6 +122,13 @@ class FetchEnv(robot_env.RobotEnv):
             grip_pos, object_pos.ravel(), object_rel_pos.ravel(), gripper_state, object_rot.ravel(),
             object_velp.ravel(), object_velr.ravel(), grip_velp, gripper_vel,
         ])
+
+        front_frame = self.sim.render(
+            width=300, height=200, camera_name='external_camera_0', depth=False)
+        gripper_frame = self.sim.render(
+            width=300, height=200, camera_name='gripper_camera_rgb', depth=False)
+
+        obs = np.concatenate([front_frame, gripper_frame], axis=1)
 
         return {
             'observation': obs.copy(),

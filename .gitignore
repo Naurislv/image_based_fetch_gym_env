@@ -1,3 +1,4 @@
 # Ignore pythonic stuff
 __pycache__
 *.egg-info
+.mypy_cache

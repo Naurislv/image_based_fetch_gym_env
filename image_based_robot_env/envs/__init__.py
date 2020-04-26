@@ -1,0 +1,1 @@
+from image_based_robot_env.envs.im_robot_env import ImRobotEnv
