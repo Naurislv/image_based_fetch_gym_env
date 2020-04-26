@@ -29,6 +29,7 @@ Install custom Gym environment:
 
 ```python
 import gym
+import image_based_robot_env
 
 env = gym.make("image-based-robot-env-v0")
 
