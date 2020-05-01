@@ -2,9 +2,11 @@
 
 This is a custom Gym environment [FetchReach-v1](https://gym.openai.com/envs/FetchReach-v1/) implementation following this [tutorial](https://medium.com/@apoddar573/making-your-own-custom-environment-in-gym-c3b65ff8cdaa).
 
+![images](images/env_example.png)
+
 ## Motivation
 
-I am working on sophisticated robotics solutions for Smart Manufacturing use-cases. In my experience, I have observed that simpler solutions often work better in production than more sophisticated, think OpenCV vs Machine Learning. Supervised Machine Learning methods are very hard to implement in the factory because you almost never have enough nor right data to feed for algorithms. While solutions implementing classical Computer Vision algorithms (OpenCV) work well in many cases, they introduce other challenges such as calibration requirements, longer robot setups, more complex development, engineering pipelines, etc.
+I am working on sophisticated robotics solutions for Smart Manufacturing use-cases. In my experience simpler solutions often work better in production than more sophisticated, think OpenCV vs Machine Learning. Supervised Machine Learning methods are very hard to implement in the factory because you almost never have enough nor right data to feed for algorithms. While solutions implementing classical Computer Vision algorithms (OpenCV) work well in many cases, they introduce other challenges such as calibration requirements, longer robot setups, more complex development, engineering pipelines, etc.
 
 Note that I have specific robotics use-cases in mind which I would like to replicate in simulator therefore just any simulator with or without robot will not work and this is why I am motivated to create something working for my specific needs and not the approach which would work with multiple environments.
 
@@ -27,17 +29,7 @@ Install custom Gym environment:
 
 ## Usage
 
-```python
-import gym
-import image_based_robot_env
-
-env = gym.make("image-based-robot-env-v0")
-
-# These steps are required as workaround because of different bugs experienced during testing
-obs = env.reset()
-env.render('rgb_array')
-_, _, _, _ = env.step([0, 0, 0, 0])
-```
+See [run_example.py](run_example.py) for example usage.
 
 ## Spaces
 
