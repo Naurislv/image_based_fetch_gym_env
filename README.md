@@ -1,6 +1,6 @@
 # Image based OpenAI Gym environment
 
-This is a custom Gym environment [FetchReach-v1](https://gym.openai.com/envs/FetchReach-v1/) implementation following this [tutorial](https://medium.com/@apoddar573/making-your-own-custom-environment-in-gym-c3b65ff8cdaa).
+This is a custom Gym environment [FetchReach-v1](https://gym.openai.com/envs/FetchReach-v1/) implementation following this [tutorial](https://medium.com/@apoddar573/making-your-own-custom-environment-in-gym-c3b65ff8cdaa). Out of box [FetchReach-v1](https://gym.openai.com/envs/FetchReach-v1/) observation is robot pose rather than pixels, so this is my attempt to change that. Currently I have added two cameras.
 
 ![images](images/env_example.png)
 
@@ -29,7 +29,7 @@ Install custom Gym environment:
 
 ## Usage
 
-See [run_example.py](run_example.py) for example usage.
+Run [run_example.py](run_example.py). It will save 20 observation frames in local `./frames/..` directory.
 
 ## Spaces
 
