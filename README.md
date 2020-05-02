@@ -6,7 +6,7 @@ This is a custom Gym environment [FetchReach-v1](https://gym.openai.com/envs/Fet
 
 ## Motivation
 
-I am working on sophisticated robotics solutions for Smart Manufacturing use-cases. In my experience simpler solutions often work better in production than more sophisticated, think OpenCV vs Machine Learning. Supervised Machine Learning methods are very hard to implement in the factory because you almost never have enough nor right data to feed for algorithms. While solutions implementing classical Computer Vision algorithms (OpenCV) work well in many cases, they introduce other challenges such as calibration requirements, longer robot setups, more complex development, engineering pipelines, etc.
+I am working on sophisticated robotics solutions for Smart Manufacturing use-cases. In my experience simpler solutions often work better in production than more complex, think OpenCV vs Machine Learning. Supervised Machine Learning methods are very hard to implement in the factory because you almost never have enough nor right data to feed for algorithms. While solutions implementing classical Computer Vision algorithms (OpenCV) work well in many cases, they introduce other challenges such as calibration requirements, longer robot setups, more complex development, engineering pipelines, etc.
 
 Note that I have specific robotics use-cases in mind which I would like to replicate in simulator therefore just any simulator with or without robot will not work and this is why I am motivated to create something working for my specific needs and not the approach which would work with multiple environments.
 
