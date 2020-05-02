@@ -4,20 +4,6 @@ This is a custom Gym environment [FetchReach-v1](https://gym.openai.com/envs/Fet
 
 ![images](images/env_example.png)
 
-## Motivation
-
-I am working on sophisticated robotics solutions for Smart Manufacturing use-cases. In my experience simpler solutions often work better in production than more complex, think OpenCV vs Machine Learning. Supervised Machine Learning methods are very hard to implement in the factory because you almost never have enough nor right data to feed for algorithms. While solutions implementing classical Computer Vision algorithms (OpenCV) work well in many cases, they introduce other challenges such as calibration requirements, longer robot setups, more complex development, engineering pipelines, etc.
-
-Note that I have specific robotics use-cases in mind which I would like to replicate in simulator therefore just any simulator with or without robot will not work and this is why I am motivated to create something working for my specific needs and not the approach which would work with multiple environments.
-
-When looked through the vast resources and possibilities to set up the simulator for Robotics use-cases I stumbled upon a few major obstacles:
-
-1. I am not planning to create an environment from scratch therefor most environments did not fit the bill just because they way off from what I want.
-2. Most environments are not suitable for Reinforcement learning because it's hard or impossible to speed them up.
-3. Even if the environment supports speed up its the interface is complicated to use and integrating Reinforcement learning algorithms are rather unpleasurable
-
-So I settled on OpenAI Gym which seems to bring the best balance. Once I'll need something which will reflect the real world in more detail, I will revisit this topic.
-
 ## Installation
 
 Install custom Gym environment:
@@ -45,3 +31,16 @@ From [here](https://github.com/openai/gym/tree/master/gym/envs/robotics) I copie
 1. Environment: `fetch_env.py`
 2. Assets (MuJoCo) description: `reach.xml`, `robot.xml` and `shared.xml`
 3. Stls and textures for fetch environment
+
+
+## Motivation
+
+I am working on sophisticated robotics solutions for Smart Manufacturing use-cases. In my experience simpler solutions often work better in production than more complex, think OpenCV vs Machine Learning. Supervised Machine Learning methods are very hard to implement in the factory because you almost never have enough nor right data to feed for algorithms. While solutions implementing classical Computer Vision algorithms (OpenCV) work well in many cases, they introduce other challenges such as calibration requirements, longer robot setups, more complex development, engineering pipelines, etc.
+
+When looked through the vast resources and possibilities to set up the simulator for Robotics use-cases I stumbled upon a few major obstacles:
+
+1. I am not planning to create an environment from scratch therefor most environments did not fit the bill just because they are way off from what I want.
+2. Most environments are not suitable for Reinforcement learning because it's hard or impossible to speed them up.
+3. Even if the environment supports speed up the interface is complicated to use and integrating Reinforcement learning algorithms are rather uneasy.
+
+So I settled on OpenAI Gym which seems to bring the best balance. Once I'll need something which will reflect the real world in more detail, I will revisit this topic.
