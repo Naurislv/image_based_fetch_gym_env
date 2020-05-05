@@ -18,7 +18,7 @@ def make_env():
     # These steps are required as workaround because of different bugs experienced during testing
     env.reset()
     env.render('rgb_array')
-    env.step([0, 0, 0, 0])
+    env.step([0, 0, 0])
 
     return env
 
@@ -34,7 +34,14 @@ def main():
         # Rendering support only mode=human and should be used for testing purposes
         # env.render(mode='human')
 
-        observation, _, _, _ = env.step(env.action_space.sample())
+        # Action space:
+        #   [
+        #    -1..1,
+        #    -1..1,
+        #    -1..1
+        #   ]
+
+        observation, _, _, _ = env.step([0, 0, 0.1])
 
         cv2.imwrite(f'frames/{idx}_frame.png', observation['observation'])
 

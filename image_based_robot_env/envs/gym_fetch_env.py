@@ -51,7 +51,7 @@ class FetchEnv(robot_env.RobotEnv):
         self.reward_type = reward_type
 
         super(FetchEnv, self).__init__(
-            model_path=model_path, n_substeps=n_substeps, n_actions=4,
+            model_path=model_path, n_substeps=n_substeps, n_actions=3,
             initial_qpos=initial_qpos)
 
     # GoalEnv methods
@@ -75,9 +75,10 @@ class FetchEnv(robot_env.RobotEnv):
             self.sim.forward()
 
     def _set_action(self, action):
-        assert action.shape == (4,)
+        assert action.shape == (3,)
         action = action.copy()  # ensure that we don't change the action outside of this scope
-        pos_ctrl, gripper_ctrl = action[:3], action[3]
+        pos_ctrl = action[:3]
+        gripper_ctrl = 0
 
         pos_ctrl *= 0.05  # limit maximum change in position
         rot_ctrl = [1., 0., 1., 0.]  # fixed rotation of the end effector, expressed as a quaternion
@@ -178,7 +179,7 @@ class FetchEnv(robot_env.RobotEnv):
                 goal[2] += self.np_random.uniform(0, 0.45)
         else:
             goal = self.initial_gripper_xpos[:3] + self.np_random.uniform(-0.15, 0.15, size=3)
-            
+
             # Seting the ball height, which depends on table height
             # TODO: Currently hardcoding table size, should be fixed
             goal[2] = (self.sim.data.get_body_xpos("table0")[2] + 0.2 +
@@ -193,7 +194,7 @@ class FetchEnv(robot_env.RobotEnv):
     def _env_setup(self, initial_qpos):
         for name, value in initial_qpos.items():
             self.sim.data.set_joint_qpos(name, value)
-        
+
         utils.reset_mocap_welds(self.sim)
         self.sim.forward()
 
